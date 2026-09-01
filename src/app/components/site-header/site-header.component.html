@@ -1,0 +1,35 @@
+<header class="site-header">
+    <div class="header-inner">
+        <button type="button" class="brand" (click)="onNavigate('hero')">
+            <app-sun-cross [size]="26"></app-sun-cross>
+            <span>Ruum 23</span>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Hauptnavigation">
+            @for (item of navItems; track item.target) {
+            <button type="button" class="nav-item"
+                (click)="onNavigate(item.target)">{{ item.label }}</button>
+            }
+        </nav>
+
+        <button
+            type="button"
+            class="menu-toggle"
+            (click)="menuOpen = !menuOpen"
+            aria-label="Menü"
+            aria-expanded="{{ menuOpen }}">
+            <span [class.open]="menuOpen"></span>
+            <span [class.open]="menuOpen"></span>
+            <span [class.open]="menuOpen"></span>
+        </button>
+    </div>
+
+    @if (menuOpen) {
+    <div class="mobile-menu">
+        @for (item of navItems; track item.target) {
+        <button type="button" class="mobile-nav-item"
+            (click)="onNavigate(item.target)">{{ item.label }}</button>
+        }
+    </div>
+    }
+</header>

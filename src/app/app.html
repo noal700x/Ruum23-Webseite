@@ -1,0 +1,166 @@
+<div class="page-shell">
+  <app-site-header [navItems]="navItems" (navigate)="scrollTo($event)"></app-site-header>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="ghost-number" aria-hidden="true">23</div>
+
+      <div class="content-wrap">
+        <div class="brand-row">
+          <app-sun-cross [size]="68"></app-sun-cross>
+          <div class="eyebrow-block">
+            <p class="eyebrow">Christlicher Verein</p>
+            <p class="subeyebrow">Konfessionell unabhängig</p>
+          </div>
+        </div>
+
+        <h1>Ruum 23.</h1>
+
+        <app-star-divider></app-star-divider>
+
+        <div class="hero-meta">
+          <div>
+            <p class="meta-label">Aktuells Semester-Thema</p>
+            <p class="meta-title">In the same way</p>
+          </div>
+
+          <p class="hero-copy">
+            Zäme entdecke, wie mer chönnd läbe —<br />
+            wie er gläbt het. <span>1. Joh 2,6</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="wer" class="info-section">
+      <div class="section-grid">
+        <div class="section-label">
+          <h2>Wer mir<br />sind</h2>
+        </div>
+
+        <div class="section-body">
+          <div class="description">
+            <p>
+              Mir sind en junge, chilenöche, aber konfessionell unabhängige Verein. Üses Ziel isch,
+              Ruum z schaffe, wo Jesus im Zentrum stoht – für Begägnige mit Gott, mitenand und
+              fürenand.
+            </p>
+            <p>
+              Mir chömmed zäme zum Worship, zum d Bible studiere, zum mitenand Läbe teile.
+            </p>
+          </div>
+
+          <div class="pillars">
+            @for (label of ['Worship', 'Bibelstudium', 'Gmeinschaft']; track label) {
+              <div class="pillar">{{ label }}</div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="koepfe" class="info-section team-section">
+      <div class="section-grid">
+        <div class="section-label">
+          <h2>D Chöpf<br />dehinder</h2>
+        </div>
+
+        <div class="people-grid">
+          @for (person of people; track person.name; let i = $index) {
+            <article class="person-card" [style.margin-top]="i === 1 ? '1.25rem' : '0'">
+              <div class="person-alias" aria-hidden="true">{{ person.alias }}</div>
+              <div class="accent-bar"></div>
+              <div class="person-body">
+                <p class="person-role">{{ person.alias }}</p>
+                <p class="person-name">{{ person.name }}</p>
+                <p class="person-tag">Vorstand – Gründungsmitglied</p>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="aktuell" class="current-section">
+      <div class="current-overlay" aria-hidden="true"></div>
+
+      <div class="section-grid current-grid">
+        <div class="section-label current-label">
+          <p class="current-kicker">Aktuell</p>
+          <h2>In the<br />same way</h2>
+        </div>
+
+        <div class="current-content">
+          <div class="current-row">
+            <div class="flyer-card" aria-label="Flyer zur aktuellen Themenreihe In the same way">
+              <div class="flyer-inner">
+                <div class="flyer-tag">Semester-Thema</div>
+                <div class="flyer-title">In the same way</div>
+              </div>
+            </div>
+
+            <div class="current-copy-block">
+              <p class="current-intro">Zäme entdecke, wie mer chönnd läbe – wie er gläbt het.</p>
+
+              <blockquote class="quote-block">
+                <p class="quote-text">„wie er gläbt het"</p>
+                <cite>1. Johannes 2,6</cite>
+              </blockquote>
+
+              <ul class="current-list">
+                @for (item of currentHighlights; track item) {
+                  <li><span class="dot"></span>{{ item }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <app-star-divider [light]="true"></app-star-divider>
+        </div>
+      </div>
+
+      <div class="crowd-silhouette" aria-hidden="true">
+        <svg viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+          <path
+            d="M0,120 L0,90 C10,85 15,70 18,55 L22,55 C22,65 25,78 30,85 C32,75 35,60 38,50 L40,42 L42,50 C45,60 48,75 50,85 C55,78 58,65 58,55 L62,55 C65,70 70,85 80,90 L80,120 Z
+               M70,120 L70,88 C80,82 88,68 90,52 L94,52 C94,62 97,76 103,84 C105,72 110,58 114,46 L117,36 L120,46 C124,58 129,72 131,84 C137,76 140,62 140,52 L144,52 C146,68 154,82 164,88 L164,120 Z
+               M150,120 L150,86 C162,80 170,64 172,48 L177,48 C177,60 181,75 188,83 C190,70 196,55 201,42 L205,30 L209,42 C214,55 220,70 222,83 C229,75 233,60 233,48 L238,48 C240,64 248,80 260,86 L260,120 Z
+               M240,120 L240,88 C250,82 257,67 259,52 L264,52 C264,63 268,77 275,85 C277,72 283,57 288,44 L292,33 L296,44 C301,57 307,72 309,85 C316,77 320,63 320,52 L325,52 C327,67 334,82 344,88 L344,120 Z
+               M325,120 L325,85 C337,79 345,63 347,47 L353,47 C353,58 357,73 365,82 C367,68 374,52 380,38 L384,26 L388,38 C394,52 401,68 403,82 C411,73 415,58 415,47 L421,47 C423,63 431,79 443,85 L443,120 Z
+               M420,120 L420,87 C431,81 439,65 441,49 L447,49 C447,61 451,76 459,84 C461,70 468,55 474,41 L478,29 L482,41 C488,55 495,70 497,84 C505,76 509,61 509,49 L515,49 C517,65 525,81 536,87 L536,120 Z
+               M515,120 L515,89 C525,83 532,68 534,53 L540,53 C540,64 544,78 551,86 C553,73 559,58 565,44 L569,33 L573,44 C579,58 585,73 587,86 C594,78 598,64 598,53 L604,53 C606,68 613,83 623,89 L623,120 Z
+               M605,120 L605,86 C617,80 625,64 627,48 L633,48 C633,60 637,74 645,82 C648,69 654,53 660,40 L664,28 L668,40 C674,53 680,69 683,82 C691,74 695,60 695,48 L701,48 C703,64 711,80 723,86 L723,120 Z
+               M700,120 L700,88 C710,82 717,67 719,52 L724,52 C724,63 728,77 735,85 C737,72 743,57 748,44 L752,33 L756,44 C761,57 767,72 769,85 C776,77 780,63 780,52 L785,52 C787,67 794,82 800,88 L800,120 Z"
+            fill="rgba(20,35,65,0.85)"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact-section">
+      <div class="section-grid">
+        <div class="section-label">
+          <h2>WhatsApp</h2>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <p>
+              Scan de QR-Code und tritt üserer WhatsApp-Gruppe bi. Do bechunnsch alli genaue
+              Infos, de Treffpunkt und alles Weitere.
+            </p>
+            <p class="qr-note">QR-Code wird bald aktualisiert</p>
+          </div>
+
+          <div class="qr-card" aria-label="WhatsApp Gruppen QR-Code">
+            <div class="qr-grid">
+              @for (cell of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]; track cell) {
+                <span></span>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
